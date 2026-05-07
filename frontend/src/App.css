@@ -1,0 +1,177 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f4f6f9;
+}
+
+.header {
+  background: #1f2937;
+  color: white;
+  padding: 16px 32px;
+}
+
+.main {
+  padding: 30px;
+}
+
+.form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form button {
+  background: #1f2937;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+\.request-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  color: #1f2937;
+}
+
+.request-table th,
+.request-table td {
+  padding: 14px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #1f2937;
+}
+
+.request-table th {
+  background: #f9fafb;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #6b7280;
+  padding-bottom: 10px;
+}
+
+td {
+  padding: 12px 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status.assigned {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status.in-progress {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.status.completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* ROLE SELECTION SCREEN */
+
+.role-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1f2937, #111827);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.role-card {
+  background: white;
+  padding: 50px;
+  border-radius: 12px;
+  text-align: center;
+  width: 350px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.role-title {
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.role-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.role-btn {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+/* Individual button colors */
+
+.role-btn.reception {
+  background-color: #2563eb;
+  color: white;
+}
+
+.role-btn.cardiology {
+  background-color: #dc2626;
+  color: white;
+}
+
+.role-btn.orthopedics {
+  background-color: #059669;
+  color: white;
+}
+
+/* Hover Effects */
+
+.role-btn:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+.logout-btn {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  float: right;
+  transition: 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: #dc2626;
+}

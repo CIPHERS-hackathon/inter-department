@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hospital Requests</title>
+  </head>
+  <body>
+    <h1>Requests</h1>
+    <h2>Create Request</h2>
+    <input id="name" placeholder="Patient Name" />
+    <input id="type" placeholder="Request Type" />
+    <button onclick="createRequest()">Create</button>
+    <button onclick="loadRequests()">Load Requests</button>
+    <ul id="list"></ul>
+
+    <script>
+      async function createRequest() {
+        const name = document.getElementById("name").value;
+        const type = document.getElementById("type").value;
+
+        if (!name || !type) {
+          alert("Fill both fields");
+          return;
+        }
+
+        const res = await fetch("http://localhost:5000/requests", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            patientName: name,
+            requestType: type,
+          }),
+        });
+
+        if (res.ok) loadRequests();
+        else alert("Failed to create request");
+      }
+
+      async function loadRequests() {
+        const res = await fetch("http://localhost:5000/requests");
+        const data = await res.json();
+
+        const list = document.getElementById("list");
+        list.innerHTML = "";
+
+        data.forEach((req) => {
+          const li = document.createElement("li");
+          li.innerHTML = `
+  ${req.patientName} - ${req.status} - Delayed: ${req.isDelayed}
+  <button onclick="updateStatus(${req.id})">Next Step</button>
+`;
+          list.appendChild(li);
+        });
+      }
+      async function updateStatus(id) {
+        await fetch(`http://localhost:5000/requests/${id}/status`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            newStatus: "Assigned",
+            updatedBy: "Admin",
+            department: "Cardiology",
+          }),
+        });
+
+        loadRequests();
+      }
+    </script>
+  </body>
+</html>
